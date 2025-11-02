@@ -1,0 +1,11 @@
+so the json file
+item
+amount
+thresh
+
+"item": {
+        "amount": int,
+        "threshhold": int
+        }
+
+need a lsson on json
