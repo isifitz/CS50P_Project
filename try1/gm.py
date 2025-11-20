@@ -1,10 +1,10 @@
 import json
 
 def main():
-    grocery = load_groceries()
+    grocery = load_json()
     make_glist(grocery)
 
-def load_groceries():
+def load_json():
     # migh need to add something to check if file exists
     with open("example.json", "r") as f:
         groceries = json.load(f)
