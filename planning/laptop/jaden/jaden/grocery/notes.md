@@ -1,5 +1,5 @@
 ## TODO
-- [ ] initialise json file
+- [ ] initialize json file
 - [ ] write to json file
 - [ ] create a item
 - [ ] add a item to list
@@ -40,10 +40,10 @@ format
 ```
 
 roughly something like that
-so next step would be to set up code for initialising the file and just loading the file and list.
+so next step would be to set up code for initializing the file and just loading the file and list.
 
 fridge is what you have
-glist is what you need to buy
+g list is what you need to buy
 
 so we just want to make a fridge item
 
@@ -64,7 +64,7 @@ simplify for now just fridge
 file needs a name like "house_inventory" or some shi
 
 ## In program itself
-you have all the seperate things as there own thing
+you have all the separate things as there own thing
 so fridge_list, panty_list, cleaning_list, etc.
 They have their own unique things like fridge is when it's old, freezer use by or some shi like that
 Have a "added it date" and things in that regard

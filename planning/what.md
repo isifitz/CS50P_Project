@@ -29,7 +29,7 @@ make a list as a txt file
 
 have it so main.py has fancy looking stuff but the other py files just have clean data to work with
 
-so groc has all the code and main is just calling it
+so grocery has all the code and main is just calling it
 
 so as we been over the following
 
@@ -38,3 +38,30 @@ Inventory goes into a dictionary and every item is a dictionary paired with the 
 can also have argparse for quick updates
 like gimme list
 I got milk
+
+## From obsidian
+
+loading the json into something that makes sense
+**NEED TO RESEARCH THIS**
+
+now something that can add, remove and edit the json variable
+
+Then something for grocery list
+
+```python
+import json
+
+with open("fridge.json", "r") as f:
+	data = json.load(f)
+	
+'''
+then you can work with data and just export it to the file in the end
+eg:
+'''
+def add_item(data,item):
+	if item in data["fridge"]:
+		# somehow get the index (which is the same as the item)
+		data[fridge][index][amount] += 1
+		with open("fridge.json", "w") as f:
+			json.dump(data, f) 
+```
