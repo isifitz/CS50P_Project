@@ -21,7 +21,7 @@ def add_item(grocery):
     item = input("Item name: ")
     amount = input_int("Amount: ")
     threshold = input_int("Threshold for refreshing: ")
-    grocery.append({'item':item,'amount':amount,'threshold':threshold}, grocery)
+    grocery.append({item:{'quantity':amount,'threshold':threshold}}, grocery)
     update_json(grocery)
     return grocery
 
