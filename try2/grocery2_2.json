@@ -1,0 +1,15 @@
+{
+  "chicken": {
+    "quantity": 5,
+    "threshold": 2
+  },
+  "milk": {
+    "quantity": 6,
+    "threshold": 2
+  },
+  "eggs": {
+    "name": "eggs",
+    "quantity": 40,
+    "threshold": 12
+  }
+}

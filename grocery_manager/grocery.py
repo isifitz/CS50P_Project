@@ -1,5 +1,5 @@
 '''
-make a class for the invetory
+make a class for the inventory
 that holds the list of things (check pybook if you need help)
 '''
 
