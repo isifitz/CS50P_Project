@@ -1,4 +1,5 @@
 import json
+import os
 
 def main():
     grocery = load_json()
@@ -61,6 +62,36 @@ def make_glist(grocery:dict):
             for x in grocery_list:
                 print(x)
                 f.write(x + '\n')
+
+# New stuff from try 2
+
+def hard_set_amounts(grocery:dict):
+    item = input('Which item would you like to set amounts for: ')
+    if item not in grocery.keys():
+        print("not in json. add this")
+    else:
+        amount = input_int("What amount do you want to set it to: ")
+        grocery[item]["quantity"] = amount
+        update_json(grocery)
+    return grocery
+
+def update_with_shopping_list(grocery:dict) -> dict | None:
+    go = False
+    if os.path.exists("shopping.csv"):
+        with open("shopping.csv", "r") as f:
+            for line in f:
+                item , amount = line.split(",")
+                if item in grocery.keys():
+                    grocery[item]["quantity"] += int(amount)
+                    print(f"Added {item}")
+                    go = True
+                else:
+                    print(f"{item} not in json")
+        if go:
+            update_json(grocery)
+        return grocery
+    else:
+        print("No shopping list found")
 
 if __name__ == "__main__":
     main()

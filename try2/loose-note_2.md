@@ -22,6 +22,12 @@ small test things: should only allow positive amounts
 
 ## Arg system
 
+## TODO
+- [ ] so get it so it can show a message for each arg case
+  - [ ] for no args, print would have showed tui
+  - [ ] etc.
+
+
 so if they just use the arg without values then it calls the function but they can also add in the amounts to do it one way
 
 ### Adding item
@@ -75,4 +81,9 @@ Grocery_manager
     └── this could be G list
 
 
+## AI try
+Just give the AI it's own file with my current code and explain how I want the argparse system to work (as above)
 
+so the way it's finna work
+you have the arg system for quick use if you know what you want to do, then a tui if you omit the args
+for the tui I want to use a library like use inquirer and tabulate and 

@@ -17,7 +17,7 @@ So I need to start planning this out
 So first I want to remove unnecessary files and make some example stuff
 
 Testing libraries
-- typer
+- argparse
 - inquirer
 - click
 - rich
