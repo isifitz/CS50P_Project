@@ -96,3 +96,18 @@ Just give the AI it's own file with my current code and explain how I want the a
 so the way it's finna work
 you have the arg system for quick use if you know what you want to do, then a tui if you omit the args
 for the tui I want to use a library like use inquirer and tabulate and 
+
+### Arg system
+
+so far it calls the functions perfectly but now we should make it so that you can add in the other info and have it work
+**kwargs
+
+I don't know what it means so we need to figure out optional things
+so if there is optional stuff it should send the optional stuff
+
+### Codex Plan
+
+1. Inspect the gm_2 helpers and current argparse wiring to confirm what inputs each function expects and how they currently prompt users.
+2. Extend the argparse definitions so each action flag optionally accepts the relevant positional arguments (e.g., name/amount/threshold) without breaking the existing interactive mode.
+3. Update dispatch_actions to detect whether the optional CLI arguments were supplied; if so, bypass prompts and call the gm_2 helpers with those values, otherwise fall back to the interactive flow.
+4. Add guardrails/logging for invalid or incomplete combinations so the user receives guidance when mixing optional CLI inputs with interactive prompts.

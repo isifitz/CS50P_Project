@@ -1,6 +1,6 @@
 {
   "chicken": {
-    "quantity": 5,
+    "quantity": 2,
     "threshold": 2
   },
   "milk": {
@@ -9,7 +9,7 @@
   },
   "eggs": {
     "name": "eggs",
-    "quantity": 40,
+    "quantity": 30,
     "threshold": 12
   }
 }
