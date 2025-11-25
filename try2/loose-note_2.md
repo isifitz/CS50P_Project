@@ -24,9 +24,18 @@ small test things: should only allow positive amounts
 
 ## TODO
 - [ ] so get it so it can show a message for each arg case
-  - [ ] for no args, print would have showed tui
-  - [ ] etc.
+  - [x] for no args, print would have showed tui
+  - [x] g list and shopping list
+  - [ ] So the rest
 
+### issue
+```
+python3 agp_sys.py
+    Namespace(new_item=None, add_amount=None, reduce_amount=None, set_amount=None, make_grocery_list=False, use_shopping_list=False)
+```
+
+Fuh so now the args aren't empty if you add nothing
+so watch a video about using args actually
 
 so if they just use the arg without values then it calls the function but they can also add in the amounts to do it one way
 
