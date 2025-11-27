@@ -1,5 +1,6 @@
 import json
 import os
+import sys
 
 def main():
     grocery = load_json()
@@ -26,28 +27,43 @@ def add_item(grocery):
     update_json(grocery)
     return grocery
 
-def add_amount(grocery:dict):
-    item = input('Which item would you like to add to: ')
-    if item not in grocery.keys():
-        print("not in json. add this")
-    else:
+# Working lol
+
+def add_amount(grocery:dict, args:list):
+    if args[0]:
+        item = input('Which item would you like to add to: ')
+        if item not in grocery.keys():
+            sys.exit(f"{item} is not in json.")
         amount = input_int("how much would you like to add: ")
-        grocery[item]["quantity"] += amount
-        update_json(grocery)
+    else:
+        item = args[1]
+        amount = int(args[2])
+        if item not in grocery.keys():
+            sys.exit(f"{item} is not in json.")
+        print(f"Add amounts: {item} +{amount}")
+
+    grocery[item]["quantity"] += amount
+    update_json(grocery)
     return grocery
 
-def remove_amount(grocery:dict):
-    item = input('Which item would you like to update: ')
-    if item not in grocery.keys():
-        print("not in json. add this")
-    else:
+def remove_amount(grocery:dict, args:list):
+    if args[0]:
+        item = input('Which item would you like to update: ')
+        if item not in grocery.keys():
+            sys.exit(f"{item} is not in json.")
         amount = input_int("how much would you like to remove: ")
-        grocery[item]["quantity"] -= amount
-        if grocery[item]["quantity"] < 0:
-            grocery[item]["quantity"] = 0
-        update_json(grocery)
+    else:
+        item = args[1]
+        amount = int(args[2])
+        if item not in grocery.keys():
+            sys.exit(f"{item} is not in json.")
+        print(f"Add amounts: {item} +{amount}")
+        
+    grocery[item]["quantity"] -= amount
+    if grocery[item]["quantity"] < 0:
+        grocery[item]["quantity"] = 0
+    update_json(grocery)
     return grocery
-    # ideal way this would work is you give a list of what you used instead of one by one
 
 def make_glist(grocery:dict):
     grocery_list = []
@@ -63,14 +79,21 @@ def make_glist(grocery:dict):
                 print(x)
                 f.write(x + '\n')
 
-def hard_set_amounts(grocery:dict):
-    item = input('Which item would you like to set amounts for: ')
-    if item not in grocery.keys():
-        print("not in json. add this")
-    else:
+def hard_set_amounts(grocery:dict, args:list):
+    if args[0]:
+        item = input('Which item would you like to set amounts for: ')
+        if item not in grocery.keys():
+            sys.exit(f"{item} is not in json.")
         amount = input_int("What amount do you want to set it to: ")
-        grocery[item]["quantity"] = amount
-        update_json(grocery)
+    else:
+        item = args[1]
+        amount = int(args[2])
+        if item not in grocery.keys():
+            sys.exit(f"{item} is not in json.")
+        print(f"Set amount: {item} +{amount}")
+    
+    grocery[item]["quantity"] = amount
+    update_json(grocery)
     return grocery
 
 def update_with_shopping_list(grocery:dict) -> dict | None:

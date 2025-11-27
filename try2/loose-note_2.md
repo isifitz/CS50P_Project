@@ -132,7 +132,16 @@ then I need to change the functions in gm_2 for these changes and have it so the
 The fuh we still need to figure out inquirer and tabulate
 
 so to do is just do 1 of them then follow that
+yasis refactoring this gon be hell
+then also figuring out a django implementation for this for web and making a swift app for this...
 
+### So current task
+
+Ok so now the add amount is working properly when using args but its now 100%
+I am lazy.
+
+this shi complicated af lol
+use parse_args for testing
 
 ### Codex Plan
 
