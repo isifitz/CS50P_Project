@@ -7,9 +7,8 @@ blame this out quick with sys
 
 - [x] hard setting
 - [x] updating json with a shopping list
-- [ ] using args (this is kind of complicated)
-  - [ ] tutorials
-  - [ ] implement
+- [x] using args (this is kind of complicated)
+- [ ] now just the TUI (FUH)
 
 ## add in remove Item from json
 
