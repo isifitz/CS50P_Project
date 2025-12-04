@@ -8,7 +8,6 @@
     "threshold": 2
   },
   "eggs": {
-    "name": "eggs",
     "quantity": 30,
     "threshold": 12
   }

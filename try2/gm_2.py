@@ -27,17 +27,16 @@ def add_item(grocery):
     update_json(grocery)
     return grocery
 
-# Working lol
-
-def add_amount(grocery:dict, args:list):
-    if args[0]:
+def add_amount(grocery:dict, args:list=[True]):
+    print(args)
+    if args[0] is True:
         item = input('Which item would you like to add to: ')
         if item not in grocery.keys():
             sys.exit(f"{item} is not in json.")
         amount = input_int("how much would you like to add: ")
     else:
-        item = args[1]
-        amount = int(args[2])
+        item = args[0]
+        amount = int(args[1])
         if item not in grocery.keys():
             sys.exit(f"{item} is not in json.")
         print(f"Add amounts: {item} +{amount}")
@@ -46,15 +45,15 @@ def add_amount(grocery:dict, args:list):
     update_json(grocery)
     return grocery
 
-def remove_amount(grocery:dict, args:list):
-    if args[0]:
+def remove_amount(grocery:dict, args:list=[True]):
+    if args[0] is True:
         item = input('Which item would you like to update: ')
         if item not in grocery.keys():
             sys.exit(f"{item} is not in json.")
         amount = input_int("how much would you like to remove: ")
     else:
-        item = args[1]
-        amount = int(args[2])
+        item = args[0]
+        amount = int(args[1])
         if item not in grocery.keys():
             sys.exit(f"{item} is not in json.")
         print(f"Add amounts: {item} +{amount}")
@@ -79,15 +78,15 @@ def make_glist(grocery:dict):
                 print(x)
                 f.write(x + '\n')
 
-def hard_set_amounts(grocery:dict, args:list):
-    if args[0]:
+def hard_set_amounts(grocery:dict, args:list=[True]):
+    if args[0] is True:
         item = input('Which item would you like to set amounts for: ')
         if item not in grocery.keys():
             sys.exit(f"{item} is not in json.")
         amount = input_int("What amount do you want to set it to: ")
     else:
-        item = args[1]
-        amount = int(args[2])
+        item = args[0]
+        amount = int(args[1])
         if item not in grocery.keys():
             sys.exit(f"{item} is not in json.")
         print(f"Set amount: {item} +{amount}")
@@ -113,13 +112,6 @@ def update_with_shopping_list(grocery:dict) -> dict | None:
         return grocery
     else:
         print("No shopping list found")
-
-def arg_system(grocery:dict):
-    ...
-    # so first it checks if there any args
-
-    # then if there are args and does "tool calling"
-
 
 if __name__ == "__main__":
     main()

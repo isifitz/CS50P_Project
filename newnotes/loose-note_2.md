@@ -148,3 +148,40 @@ use parse_args for testing
 2. Extend the argparse definitions so each action flag optionally accepts the relevant positional arguments (e.g., name/amount/threshold) without breaking the existing interactive mode.
 3. Update dispatch_actions to detect whether the optional CLI arguments were supplied; if so, bypass prompts and call the gm_2 helpers with those values, otherwise fall back to the interactive flow.
 4. Add guardrails/logging for invalid or incomplete combinations so the user receives guidance when mixing optional CLI inputs with interactive prompts.
+# Current work
+
+- [ ] Inquirer
+  - [ ] figure out a ideal flow for the programs tui
+  - [ ] then make a inquirer for each page
+- [ ] tabulate
+  - [ ] this is just for seeing current stock
+  - [ ] just need to make a new function for seeing current stock and making is view with this
+
+once we finish these 2 then just refactor, clean up and start with testing.
+Then make things look nice, get the program cleaned up in one file, start all the requirements for the project (video, etc.) then upload and done
+
+## Inquirer
+
+1. need to go one function at a time
+   1. first just add and remove amounts
+   2. set amount
+   3. add item
+   4. 
+
+add amount
+remove amount
+set amount
+
+add item
+
+make grocery list
+use shopping list
+
+## Tabulate
+
+...
+
+## Notes
+
+make diagrams to see where to refactor see the flow and have a low level understanding of the program
+so first issue is the whole thing is kind of cooked damn
