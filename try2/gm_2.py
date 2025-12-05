@@ -1,6 +1,7 @@
 import json
 import os
 import sys
+from tabulate import tabulate
 
 def main():
     grocery = load_json()
@@ -112,6 +113,18 @@ def update_with_shopping_list(grocery:dict) -> dict | None:
         return grocery
     else:
         print("No shopping list found")
+
+def show_stock_table(grocery:dict):
+    data = []
+    counter = 0
+    for groc in grocery.items():
+        item = groc[0]
+        value = groc[1]['quantity']
+        threshold = groc[1]['threshold']
+        data.append([item,value,threshold])
+        counter += 1
+    table = tabulate(data,headers=["Items","Amount","Threshold"],tablefmt="double_outline")
+    print(table)
 
 if __name__ == "__main__":
     main()
