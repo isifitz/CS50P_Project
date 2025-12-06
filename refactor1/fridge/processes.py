@@ -62,7 +62,50 @@ def update_with_shopping_list(grocery:dict) -> dict | None:
                     print(f"{item} not in json")
         if go:
             update_json(grocery)
+            show_stock_table(grocery)
         return grocery
     else:
         print("No shopping list found")
 
+def add_amount(grocery:dict):
+    item = input('Which item would you like to add to: ')
+    if item not in grocery.keys():
+        print(f"{item} is not in the fridge file.")
+    else:
+        amount = int(input("how much would you like to add: "))
+        old_amount = grocery[item]["quantity"]
+        grocery[item]["quantity"] += amount
+        prt_item_stock(grocery,item,old_amount)
+        update_json(grocery)
+        return grocery
+
+def remove_amount(grocery:dict):
+    item = input('Which item would you like to update: ')
+    if item not in grocery.keys():
+        print(f"{item} is not in json.")
+    else:
+        amount = int(input("how much would you like to remove: "))    
+        old_amount = grocery[item]["quantity"]
+        grocery[item]["quantity"] -= amount
+        if grocery[item]["quantity"] < 0:
+            grocery[item]["quantity"] = 0
+        prt_item_stock(grocery,item,old_amount)
+        update_json(grocery)
+        return grocery
+    
+def hard_set_amounts(grocery:dict, args:list=[True]):
+    item = input('Which item would you like to set amounts for: ')
+    if item not in grocery.keys():
+        print(f"{item} is not in json.")
+    else:
+        amount = int(input("What amount do you want to set it to: "))
+        old_amount = grocery[item]["quantity"]
+        grocery[item]["quantity"] = amount
+        prt_item_stock(grocery,item,old_amount)
+        update_json(grocery)
+        return grocery
+
+def prt_item_stock(grocery:dict,item:str,old_amount:int):
+    print(f"Updated {item} successfully!\n\
+  current quantity: {grocery[item]["quantity"]}\n\
+  previous quantity: {old_amount}")

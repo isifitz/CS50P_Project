@@ -1,5 +1,5 @@
 import inquirer
-from fridge.processes import add_item, show_stock_table, make_glist,update_with_shopping_list
+from fridge.processes import add_item, hard_set_amounts, add_amount, remove_amount, show_stock_table, make_glist,update_with_shopping_list
 import sys
 
 def func_inquirer():
@@ -18,12 +18,6 @@ def func_inquirer():
     return run_me
 
 def dispatch_actions(dothis:str,grocery:dict):
-    # elif dothis == "Add Amount":
-    #     p.add_amount(grocery)
-    # elif dothis == "Remove Amount": 
-    #     p.remove_amount(grocery)
-    # elif dothis == "Hard Set Amount": 
-    #     p.hard_set_amounts(grocery)
     
     if dothis == "Add Item": 
         add_item(grocery)
@@ -33,6 +27,12 @@ def dispatch_actions(dothis:str,grocery:dict):
         make_glist(grocery)
     elif dothis == "Use Shopping List":
         update_with_shopping_list(grocery)
+    elif dothis == "Add Amount":
+        add_amount(grocery)
+    elif dothis == "Remove Amount": 
+        remove_amount(grocery)
+    elif dothis == "Hard Set Amount": 
+        hard_set_amounts(grocery)
     else:
         sys.exit("Thanks for using GroceryM")
 

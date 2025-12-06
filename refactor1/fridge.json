@@ -1,6 +1,6 @@
 {
   "chicken": {
-    "quantity": 10,
+    "quantity": 4,
     "threshold": 3
   },
   "eggs": {
@@ -8,7 +8,7 @@
     "threshold": 9
   },
   "milk": {
-    "quantity": 1,
+    "quantity": 6,
     "threshold": 3
   },
   "lindon's piel": {

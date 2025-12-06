@@ -150,12 +150,12 @@ use parse_args for testing
 4. Add guardrails/logging for invalid or incomplete combinations so the user receives guidance when mixing optional CLI inputs with interactive prompts.
 # Current work
 
-- [ ] Inquirer
-  - [ ] figure out a ideal flow for the programs tui
-  - [ ] then make a inquirer for each page
-- [ ] tabulate
-  - [ ] this is just for seeing current stock
-  - [ ] just need to make a new function for seeing current stock and making is view with this
+- [x] Inquirer
+  - [x] figure out a ideal flow for the programs tui
+  - [x] then make a inquirer for each page
+- [x] tabulate
+  - [x] this is just for seeing current stock
+  - [x] just need to make a new function for seeing current stock and making is view with this
 
 once we finish these 2 then just refactor, clean up and start with testing.
 Then make things look nice, get the program cleaned up in one file, start all the requirements for the project (video, etc.) then upload and done
@@ -185,3 +185,32 @@ use shopping list
 
 make diagrams to see where to refactor see the flow and have a low level understanding of the program
 so first issue is the whole thing is kind of cooked damn
+
+# Refactor part 1
+
+also use AI after you refac to just go through what you've made and rate it scale of one to 10 and to help with documentation and naming conventions and make everything type safe liinting and allat (also with the script and power point presentation)
+
+and I'll have to refactor to make it work with the project.py and test_project.py for uploading (low key fuhkk)(deadass just put everything on one page lol)
+
+so first need to refact everything into it's own module and figure out how main will call on everything
+
+so first lets start with agp and the stock modules
+
+- [x] groecry.py == main.py
+- [ ] 2agp_sys == argp.py
+  - [ ] start with add item
+- [ ] gm_2.py == processes.py
+
+so what I see is the agp should return run tui or nah
+Ok so in dispatch it either returns true or false
+so 
+
+## Whats done so far
+
+all the json file related stuff
+tui stuff is set up but still needs to be link to the other things
+
+## TODO
+
+so tui and process done
+no argp 
