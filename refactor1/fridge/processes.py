@@ -1,8 +1,11 @@
 from fridge.grocery import update_json
 from tabulate import tabulate
 import os
+import sys
 
 # still need to validate the input here
+
+# This is the TUI section
 def add_item(grocery:dict) -> dict:
     '''
     Allow user to add a new item to the fridge if it doesn't exist already.
@@ -109,3 +112,63 @@ def prt_item_stock(grocery:dict,item:str,old_amount:int):
     print(f"Updated {item} successfully!\n\
   current quantity: {grocery[item]["quantity"]}\n\
   previous quantity: {old_amount}")
+
+# This is the agp section (takes in lists as well)
+def add_amount_arg(grocery:dict, args:list):
+    # Get the amounts and item name
+    if args[0] is True:
+        item = input('Which item would you like to add to: ').lower()
+        if item not in grocery.keys():
+            sys.exit(f"{item} is not in the fridge file.")
+        amount = int(input("how much would you like to add: "))
+    else:
+        item = args[0]
+        amount = int(args[1])
+        if item not in grocery.keys():
+            sys.exit(f"{item} is not in the fridge file.")
+
+    # make the changes
+    old_amount = grocery[item]["quantity"]
+    grocery[item]["quantity"] += amount
+    prt_item_stock(grocery,item,old_amount)
+    update_json(grocery)
+
+def remove_amount_arg(grocery:dict, args:list):
+    # Get the amounts and item name
+    if args[0] is True:
+        item = input('Which item would you like to update: ')
+        if item not in grocery.keys():
+            sys.exit(f"{item} is not in the fridge file.")
+        amount = int(input("how much would you like to remove: "))
+    else:
+        item = args[0]
+        amount = int(args[1])
+        if item not in grocery.keys():
+            sys.exit(f"{item} is not in the fridge file.")
+
+    # make the changes
+    old_amount = grocery[item]["quantity"]    
+    grocery[item]["quantity"] -= amount
+    if grocery[item]["quantity"] < 0:
+        grocery[item]["quantity"] = 0
+    prt_item_stock(grocery,item,old_amount)
+    update_json(grocery)
+
+def hard_set_amounts_arg(grocery:dict, args:list):
+    # Get the amounts and item name
+    if args[0] is True:
+        item = input('Which item would you like to set amounts for: ')
+        if item not in grocery.keys():
+            sys.exit(f"{item} is not in the fridge file.")
+        amount = int(input("What amount do you want to set it to: "))
+    else:
+        item = args[0]
+        amount = int(args[1])
+        if item not in grocery.keys():
+            sys.exit(f"{item} is not in the fridge file.")
+
+    # make the changes
+    old_amount = grocery[item]["quantity"]
+    grocery[item]["quantity"] = amount
+    prt_item_stock(grocery,item,old_amount)
+    update_json(grocery)

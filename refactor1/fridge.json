@@ -10,9 +10,5 @@
   "milk": {
     "quantity": 6,
     "threshold": 3
-  },
-  "lindon's piel": {
-    "quantity": 1,
-    "threshold": 1
   }
 }

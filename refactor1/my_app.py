@@ -1,6 +1,6 @@
 import fridge.grocery as G
 from fridge.tui import run_tui
-# gon have to import argp here
+from fridge.argp import parser_func
 # honestly just import processes for project
 import sys
 
@@ -11,7 +11,7 @@ def main():
         while True:
             run_tui(grocery)
     else:
-        print("would have run argparser")
+        parser_func(grocery)
 
 if __name__ == "__main__":
     main()

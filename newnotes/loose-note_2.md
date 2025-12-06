@@ -213,4 +213,56 @@ tui stuff is set up but still needs to be link to the other things
 ## TODO
 
 so tui and process done
-no argp 
+now argp 
+dont forget to change the if len in parser_fun
+add in
+
+### AGP TODO
+- [x] make grocery list
+- [x] use shoping list
+- [x] new item
+- [x] show stock table
+- [x] add amount
+- [x] reduce amount
+- [x] set amount
+
+
+## Later and extra
+### argparser vaildation
+argparse in Python does not directly support specifying nargs to accept either 0 or 2 arguments. The nargs argument in argparse.add_argument() allows for specific behaviors:
+nargs='?': Allows zero or one argument.
+nargs='*': Allows zero or more arguments.
+nargs='+': Requires one or more arguments.
+nargs=N (an integer): Requires exactly N arguments.
+To achieve the effect of accepting either 0 or 2 arguments, a common approach involves a two-step process:
+Use nargs='*' or nargs='?' and perform post-parsing validation:
+Define the argument with nargs='*' or nargs='?' to allow for a variable number of arguments (including zero).
+After parser.parse_args() is called, check the length of the resulting list for that argument.
+If the length is not 0 or 2, raise an ArgumentParser.error() to indicate an invalid number of arguments.
+Example:
+```Python
+
+import argparse
+
+parser = argparse.ArgumentParser(description="Example for 0 or 2 arguments")
+parser.add_argument('my_args', nargs='*', help='Provide 0 or 2 arguments')
+args = parser.parse_args()
+
+if len(args.my_args) not in [0, 2]:
+    parser.error("The 'my_args' argument requires either 0 or 2 values.")
+
+print(f"Received arguments: {args.my_args}")
+```
+
+basically in my case
+```
+if len(args.my_args) n == 0:
+  run tui version
+if len(args.my_args) n == 2:
+  if args.my_args[1] (the number) is int
+    run the quick version
+  else:
+    parser.error("invalid atguments (the second arg must be a int number)")
+else:
+    parser.error("The 'my_args' argument requires either 0 or 2 values.")
+```
